@@ -1,4 +1,5 @@
 const path = require('path')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
@@ -29,6 +30,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new UglifyJsPlugin(),
     new HtmlWebpackPlugin({
       title: 'Property Reporter Extension',
       filename: 'popup.html',
