@@ -1,0 +1,54 @@
+/**
+ * Variables
+ */
+table {
+  --header-border-color: #ccc;
+  --row-border-color: rgba(0,0,0,.06);
+}
+
+/**
+ * Rules
+ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: var(--default-text-color);
+}
+
+tr {
+  border-style: solid;
+  border-width: 1px 0 0;
+  border-color: var(--row-border-color);
+}
+
+table tr:first-of-type {
+  border-color: var(--header-border-color);
+}
+table tr:last-of-type {
+  border-bottom-width: 1px;
+}
+
+th {
+  color: var(--sub-text-color);
+}
+
+th, td {
+  padding: .5em 1.2em;
+  text-align: left;
+}
+
+tr.empty td {
+  text-align: center;
+}
+
+tr.footer-row {
+  font-weight: bold;
+}
+
+td.highlight--primary {
+  color: var(--primary-highlight-color);
+}
+td.highlight--secondary {
+  color: var(--secondary-highlight-color);
+}

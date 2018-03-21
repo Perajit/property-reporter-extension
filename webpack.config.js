@@ -39,5 +39,14 @@ module.exports = {
       'src/manifest.json',
       'resources/*'
     ])
-  ]
+  ],
+  resolve: {
+    alias: {
+      resources: path.resolve(__dirname, 'resources'),
+      constants: path.resolve(__dirname, 'src/constants'),
+      services: path.resolve(__dirname, 'src/services'),
+      content: path.resolve(__dirname, 'src/content'),
+      popup: path.resolve(__dirname, 'src/popup')
+    }
+  }
 }

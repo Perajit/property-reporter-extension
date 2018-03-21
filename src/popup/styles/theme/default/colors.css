@@ -1,0 +1,13 @@
+:root {
+  --default-text-color: rgba(0, 0, 0, .87);
+  --sub-text-color: rgba(0, 0, 0, .54);
+  --disabled-text-color: rgba(0, 0, 0, .3);
+  --inverse-text-color: white;
+  --default-bg-color: rgb(234, 234, 234);
+  --primary-highlight-color: rgb(0, 188, 212);
+  --primary-highlight-hover-color: rgb(102, 215, 229);
+  --primary-sub-highlight-color: #266d90;
+  --secondary-highlight-color: rgb(255, 64, 129);
+  --secondary-highlight-hover-color: rgb(255, 140, 179);
+  --secondary-sub-highlight-color: #bf2a5c;
+}

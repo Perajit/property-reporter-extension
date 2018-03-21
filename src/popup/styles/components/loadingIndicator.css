@@ -1,0 +1,66 @@
+/**
+ * Variables
+ */
+.loading-indicator {
+  --loading-ball-radius: 6px;
+  --loading-ball-size: 12px;
+  --loading-ball-animation--left: loading-ball 1.5s ease .2s infinite;
+  --loading-ball-animation--center: loading-ball 1.5s ease .4s infinite;
+  --loading-ball-animation--right: loading-ball 1.5s ease .6s infinite;
+}
+
+/**
+ * Rules
+ */
+@keyframes loading-ball {
+  0% { background: var(--disabled-text-color) }
+  50% { background: var(--default-text-color) }
+  100% { background: var(--disabled-text-color) }
+}
+
+.loading-ball,
+.loading-ball:before,
+.loading-ball:after {
+  position: absolute;
+  display: inline-block;
+  height: calc(var(--loading-ball-radius) + var(--loading-ball-radius));
+  width: calc(var(--loading-ball-radius) + var(--loading-ball-radius));
+  border-radius: var(--loading-ball-radius);
+  background-color: black;
+}
+
+.loading-ball:before,
+.loading-ball:after {
+  content: '';
+}
+
+.loading-ball {
+  top: calc(50% - var(--loading-ball-radius));
+  left: calc(50% - var(--loading-ball-radius));
+  animation: var(--loading-ball-animation--center);
+}
+
+.loading-ball:before {
+  right: calc(var(--loading-ball-radius) + var(--loading-ball-radius) + var(--loading-ball-radius));
+  animation: var(--loading-ball-animation--left);
+}
+
+.loading-ball:after {
+  left: calc(var(--loading-ball-radius) + var(--loading-ball-radius) + var(--loading-ball-radius));
+  animation: var(--loading-ball-animation--right);
+}
+
+.loading-container {
+  position: relative;
+  visibility: hidden;
+}
+
+.loading-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+  pointer-events: none;
+}
