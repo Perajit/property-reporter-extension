@@ -34,7 +34,12 @@ const extractItemList = (baseInfo) => {
   let itemViews = document.querySelectorAll('.listing-item')
 
   itemViews.forEach((itemView) => {
-    items.push(extractItemInfo(itemView, baseInfo))
+    let itemInfo = extractItemInfo(itemView, baseInfo)
+
+    // Skip items without price
+    if (itemInfo.price) {
+      items.push(itemInfo)
+    }
   })
 
   return items
@@ -48,46 +53,27 @@ const extractItemInfo = (itemView, baseInfo) => {
   let ptypeContainer = itemView.querySelector('.lst-ptype')
   let priceContainer = itemView.querySelector('.listing-price')
   let detailLink = itemView.querySelector('[itemprop="url"]')
+  let mtrgRepaymentContainer = itemView.querySelector('.mrtg-repayment')
+  let bedroomsContainer = itemView.querySelector('.lst-rooms .bed')
+  let bathroomContainer = itemView.querySelector('.lst-rooms .bath')
+  let sizePpsContainer = itemView.querySelector('.lst-sizes')
+  let agentPhoneNumberContainer = itemView.querySelector('.agent-phone-number-original')
 
-  let itemInfo = {
+  return {
     id,
     itemType,
     projectName,
     submittedTime,
-    name: nameContainer.textContent,
-    ptype: ptypeContainer.textContent,
-    price: getNumbersFromText(priceContainer.textContent)[0],
-    detailUrl: detailLink.href
+    name: nameContainer && nameContainer.textContent,
+    ptype: ptypeContainer && ptypeContainer.textContent,
+    price: priceContainer && getNumbersFromText(priceContainer.textContent)[0],
+    detailUrl: priceContainer && detailLink.href,
+    mtrgRepayment: mtrgRepaymentContainer && getNumbersFromText(mtrgRepaymentContainer.textContent)[0],
+    bedrooms: bedroomsContainer && Number(bedroomsContainer.textContent),
+    bathrooms: bathroomContainer && Number(bathroomContainer.textContent),
+    size: sizePpsContainer && Number(getNumbersFromText(sizePpsContainer.textContent)[0]),
+    agentPhoneNumber: agentPhoneNumberContainer && agentPhoneNumberContainer.textContent
   }
-
-  let mtrgRepaymentContainer = itemView.querySelector('.mrtg-repayment')
-  if (mtrgRepaymentContainer) {
-    itemInfo.mtrgRepayment = getNumbersFromText(mtrgRepaymentContainer.textContent)[0]
-  }
-
-  let bedroomsContainer = itemView.querySelector('.lst-rooms .bed')
-  if (bedroomsContainer) {
-    itemInfo.bedrooms = Number(bedroomsContainer.textContent)
-  }
-
-  let bathroomContainer = itemView.querySelector('.lst-rooms .bath')
-  if (bathroomContainer) {
-    itemInfo.bathrooms = Number(bathroomContainer.textContent)
-  }
-
-  let sizePpsContainer = itemView.querySelector('.lst-sizes')
-  if (sizePpsContainer) {
-    let [size, pps] = getNumbersFromText(sizePpsContainer.textContent)
-    itemInfo.size = Number(size)
-    itemInfo.pps = Number(pps)
-  }
-
-  let agentPhoneNumberContainer = itemView.querySelector('.agent-phone-number-original')
-  if (agentPhoneNumberContainer) {
-    itemInfo.agentPhoneNumber = agentPhoneNumberContainer.textContent
-  }
-
-  return itemInfo
 }
 
 const extractItemId = (itemView) => {

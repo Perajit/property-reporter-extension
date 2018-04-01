@@ -67,7 +67,7 @@ const mapDataToInfoRow = (dataItem) => {
 
   let avgPpsTd = document.createElement('td')
   avgPpsTd.className = 'highlight--secondary'
-  avgPpsTd.textContent = `฿${formatDecimal(avg)}`
+  avgPpsTd.textContent = avg && `฿${formatDecimal(avg)}`
 
   let tr = document.createElement('tr')
   tr.appendChild(projectNameTd)
