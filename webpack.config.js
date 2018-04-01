@@ -39,7 +39,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       'src/manifest.json',
-      'resources/*'
+      'assets/*'
     ])
   ],
   resolve: {
