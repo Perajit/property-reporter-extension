@@ -1,0 +1,36 @@
+{
+  "name": "property-reporter-extension",
+  "version": "1.0.0",
+  "description": "A Chrome extension of Property Reporter.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Perajit/property-reporter-extension.git"
+  },
+  "author": "Perajit Pasupat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Perajit/property-reporter-extension/issues"
+  },
+  "homepage": "https://github.com/Perajit/property-reporter-extension#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "html-webpack-plugin": "^3.0.7",
+    "style-loader": "^0.20.3",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack": "^3.10.0"
+  }
+}

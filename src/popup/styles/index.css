@@ -1,0 +1,47 @@
+@import url('theme/default/index.css');
+@import url('components/index.css');
+
+:root {
+  --default-font-family: Kanit;
+  --default-font-size: 14px;
+  --header-font-size: 1.6em;
+  --popup-width: 600px;
+  --header-height: 40px;
+  --logo-height: 30px;
+}
+
+body {
+  width: var(--popup-width);
+  font-family: var(--default-font-family);
+  font-size: var(--default-font-size);
+  --webkit-font-smoothing: antialiased;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  margin: 12px;
+  height: var(--header-height);
+  font-size: var(--header-font-size);
+  font-weight: bold;
+  color: var(--primary-highlight-color);
+}
+
+header img {
+  vertical-align: middle;
+  margin-right: 12px;
+  height: var(--logo-height);
+}
+
+header .alt {
+  color: var(--sub-text-color);
+}
+
+header, footer, .main {
+  margin: 12px;
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+}
